@@ -20,7 +20,7 @@ opt.clipboard = "unnamedplus"
 opt.cursorline = true
 opt.spell = true
 opt.spelllang = "en_us"
-opt.noshowmode = true
+opt.showmode = false
 opt.backspace = "2"
 opt.splitright = true
 opt.completeopt = { "menuone", "noselect" }
@@ -46,23 +46,20 @@ vim.g.gruvbox_material_diagnostic_text_highlight = 0
 vim.g.gruvbox_material_diagnostic_line_highlight = 0
 vim.g.gruvbox_material_diagnostic_virtual_text = 'colored'
 
--- Apply colorscheme
-vim.cmd("colorscheme gruvbox-material")
-
 -- Autocommands (Ported from init.vim)
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "cpp", "java", "noir" },
-  command = "setlocal commentstring=//\ %s",
+  command = "setlocal commentstring=//\\ %s",
 })
 
 -- Build commands
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "c",
-  command = "setlocal makeprg=gcc\ '%\'\ -o\ '%:r'\ -std=gnu11",
+  command = [[setlocal makeprg=gcc\ '%'\ -o\ '%:r'\ -std=gnu11]],
 })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "cpp",
-  command = "setlocal makeprg=g++\ '%\'\ -o\ '%:r'\ -std=c++17\ -O3\ -fsanitize=undefined,address",
+  command = [[setlocal makeprg=g++\ '%'\ -o\ '%:r'\ -std=c++17\ -O3\ -fsanitize=undefined,address]],
 })
 
 -- Folding

@@ -33,7 +33,9 @@ require("lazy").setup({
   -- Colorschemes
   { "morhetz/gruvbox" },
   { "ellisonleao/gruvbox.nvim" },
-  { "sainnhe/gruvbox-material" },
+  { "sainnhe/gruvbox-material", lazy = false, priority = 1000, config = function()
+      pcall(vim.cmd, "colorscheme gruvbox-material")
+  end },
 
   -- Quant / Data Science
   { "chrisbra/csv.vim" },

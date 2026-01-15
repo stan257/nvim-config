@@ -38,6 +38,7 @@ Plug 'nvim-telescope/telescope.nvim'            " Powerful fuzzy finder
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope-media-files.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim', { 'do': 'make' }
 Plug 'christoomey/vim-tmux-navigator'           " Seamless navigation between Vim and Tmux panes
 
 " Colorschemes
@@ -93,10 +94,10 @@ vnoremap X "_X
 
 " Telescope (Fuzzy Finder) mappings
 let mapleader = "\<Space>"
-nnoremap <leader>ff :Telescope find_files<cr>   " Find file by name
+nnoremap <leader>ff :Telescope find_files<cr>
 nnoremap <leader>mm :Telescope media_files<cr>
-nnoremap <leader>fg :Telescope live_grep<cr>    " Search text inside files (ripgrep)
-nnoremap <leader>fb :Telescope buffers<cr>      " Switch open buffers
+nnoremap <leader>fg :Telescope live_grep<cr>
+nnoremap <leader>fb :Telescope buffers<cr>
 nnoremap <leader>fh :Telescope help_tags<cr>
 
 " Tab/Buffer Navigation

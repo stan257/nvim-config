@@ -2,8 +2,6 @@
 " CORE SETTINGS
 " ============================================================================
 set termguicolors                               " Enable 24-bit RGB color in the TUI
-let g:python_host_prog="/usr/local/bin/python"  " Python 2 host (legacy) 
-let g:python3_host_prog="/usr/local/bin/python3" " Python 3 host path
 set shell=/bin/zsh                              " Use Zsh as the default shell
 
 " ============================================================================
@@ -24,7 +22,6 @@ let g:coc_global_extensions = ['coc-pyright', '@yaegassy/coc-ruff'] " Auto-insta
 
 " Utilities
 Plug 'tpope/vim-commentary'                     " Comment code with 'gcc'
-Plug 'vim-autoformat/vim-autoformat'            " Auto-format code on save/command
 Plug 'honza/vim-snippets'                       " Massive library of code snippets (Quant friendly)
 
 " Syntax & Highlighting
@@ -136,44 +133,6 @@ autocmd FileType tex     setlocal makeprg=xelatex\ -interaction\ nonstopmode\ -h
 
 " Spell check for text files
 autocmd BufEnter,BufNewFile *.{txt,md,html,tex} setlocal spell spelllang=en_us
-
-" ============================================================================
-" FORMATTING
-" ============================================================================
-set expandtab
-let g:autoformat_autoindent = 0
-" C/C++ style
-let clang_format_style = "'{ 
-            \ BasedOnStyle: Google,
-            \ TabWidth: 4,
-            \ IndentWidth: 4,
-            \ InsertBraces: true,
-            \ AccessModifierOffset: -2,
-            \ AlignAfterOpenBracket: BlockIndent,
-            \ AllowShortLoopsOnASingleLine: false,
-            \ SpaceBeforeParens: Never,
-            \ IncludeBlocks: Preserve,
-            \ SpaceBeforeCaseColon: false,
-            \ SpaceBeforeRangeBasedForLoopColon: false,
-            \ UseTab: Never,
-            \ PointerAlignment: Right,
-            \ ReferenceAlignment: Right,
-            \ DerivePointerAlignment: false,
-            \ SpaceAfterTemplateKeyword: false,
-            \ AlwaysBreakTemplateDeclarations: Yes
-            \ }'"
-let g:formatdef_custom_clike = '"clang-format --style=' . clang_format_style . '"'
-let g:formatters_java = ['custom_clike']
-let g:formatters_cpp = ['custom_clike']
-let g:formatters_cs = ['custom_clike']
-let g:formatters_c = ['custom_clike']
-
-" Python formatting (Black)
-let g:formatdef_custom_black = '"black -l 79 --preview -q ".(&textwidth ? "-l".&textwidth : "")." -"'
-let g:formatters_python = ['custom_black']
-
-" Trigger formatting with Tab
-nmap <Tab> :Autoformat<CR>
 
 " ============================================================================
 " MISC UTILITIES

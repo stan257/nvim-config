@@ -1,0 +1,41 @@
+require("lazy").setup({
+  -- UI
+  { "nvim-lualine/lualine.nvim" },
+  { "akinsho/bufferline.nvim", version = "*" },
+  { "nvim-tree/nvim-tree.lua" },
+  { "nvim-tree/nvim-web-devicons" },
+  { "akinsho/toggleterm.nvim", version = "*" },
+
+  -- LSP & Completion
+  { "neoclide/coc.nvim", branch = "release", init = function()
+    vim.g.coc_global_extensions = { 'coc-pyright', '@yaegassy/coc-ruff' }
+  end },
+
+  -- Utilities
+  { "tpope/vim-commentary" },
+  { "honza/vim-snippets" },
+  { "tpope/vim-fugitive" },
+  { "christoomey/vim-tmux-navigator" },
+
+  -- Syntax & Treesitter
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter-context" },
+
+  -- Telescope
+  { "nvim-telescope/telescope.nvim" },
+  { "nvim-lua/plenary.nvim" },
+  { "BurntSushi/ripgrep" },
+  { "nvim-telescope/telescope-file-browser.nvim" },
+  { "nvim-lua/popup.nvim" },
+  { "nvim-telescope/telescope-media-files.nvim" },
+  { "nvim-telescope/telescope-fzy-native.nvim", build = "make" },
+
+  -- Colorschemes
+  { "morhetz/gruvbox" },
+  { "ellisonleao/gruvbox.nvim" },
+  { "sainnhe/gruvbox-material" },
+
+  -- Quant / Data Science
+  { "chrisbra/csv.vim" },
+  { "jpalardy/vim-slime" },
+})

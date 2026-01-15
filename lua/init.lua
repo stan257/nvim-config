@@ -1,44 +1,32 @@
 -- ===========================================================================
--- CORE LUA OPTIONS
+-- PLUGIN CONFIGURATIONS (Setup calls)
 -- ===========================================================================
-vim.g.loaded_netrw = 1             -- Disable built-in netrw (using nvim-tree instead)
-vim.g.loaded_netrwPlugin = 1
-vim.opt.fillchars = { eob = " "}   -- Hide end-of-buffer tildes
-vim.opt.splitkeep = "screen"       -- Better split resizing
-vim.opt.laststatus = 3             -- Global status line (one for all windows)
 
--- ===========================================================================
--- TERMINAL SETUP (ToggleTerm)
--- ===========================================================================
+-- Terminal Setup (ToggleTerm)
 require("toggleterm").setup()
 
--- ===========================================================================
--- FILE EXPLORER (Nvim-Tree)
--- ===========================================================================
+-- File Explorer (Nvim-Tree)
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
     view = {
         width = 34,
     },
     renderer = {
-        group_empty = true, -- Group empty folders (e.g. java/com/corp)
+        group_empty = true,
     },
 })
 
--- ===========================================================================
--- FUZZY FINDER (Telescope)
--- ===========================================================================
+-- Fuzzy Finder (Telescope)
 require("telescope").setup({
     extensions = {
         media_files = {
-            find_cmd = "rg" -- Use ripgrep for media files
+            find_cmd = "rg"
         }
     },
     defaults = {
         file_sorter = require("telescope.sorters").get_fzy_sorter,
         prompt_prefix = " >",
         color_devicons = true,
-        -- Previewers allow you to see the file before opening
         file_previewer = require("telescope.previewers").vim_buffer_cat.new,
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
@@ -53,7 +41,6 @@ require("telescope").setup({
                 preview_height = 0.5,
             },
         },
-        -- Navigation within the Telescope window
         mappings = {
             i = {
                 ["<C-j>"] = require("telescope.actions").move_selection_next,
@@ -66,9 +53,7 @@ require("telescope").setup({
 require("telescope").load_extension("media_files")
 require("telescope").load_extension("fzy_native")
 
--- ===========================================================================
--- STATUS LINE (Lualine)
--- ===========================================================================
+-- Status Line (Lualine)
 require("lualine").setup({
     options = {
         theme = "gruvbox-material",
@@ -88,16 +73,11 @@ require("lualine").setup({
     },
 })
 
--- ===========================================================================
--- TAB LINE (Bufferline)
--- ===========================================================================
+-- Tab Line (Bufferline)
 require("bufferline").setup()
 
--- ===========================================================================
--- SYNTAX HIGHLIGHTING (Treesitter)
--- ===========================================================================
+-- Syntax Highlighting (Treesitter)
 require("nvim-treesitter.configs").setup({
-    -- Languages to ensure are installed
     ensure_installed = {
         "c", "cpp", "python", "lua", "typescript", "javascript", "vim", "vimdoc", "query", "haskell", "cuda", "bash", "java"
     },
@@ -106,7 +86,6 @@ require("nvim-treesitter.configs").setup({
 
     highlight = {
         enable = true,
-        -- Disable Treesitter on very large files for performance
         disable = function(_, buf)
             local max_filesize = 100 * 1024
             local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
@@ -118,4 +97,4 @@ require("nvim-treesitter.configs").setup({
     },
 })
 
-require("treesitter-context").setup() -- Keep function signatures visible at top
+require("treesitter-context").setup()

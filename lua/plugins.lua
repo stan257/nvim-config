@@ -15,6 +15,7 @@ require("lazy").setup({
   { "tpope/vim-commentary" },
   { "honza/vim-snippets" },
   { "tpope/vim-fugitive" },
+  { "kdheepak/lazygit.nvim" },
   { "christoomey/vim-tmux-navigator" },
 
   -- Syntax & Treesitter

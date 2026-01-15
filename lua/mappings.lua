@@ -11,6 +11,9 @@ keymap("n", "<leader>fg", ":Telescope live_grep<cr>")
 keymap("n", "<leader>fb", ":Telescope buffers<cr>")
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>")
 
+-- Git (LazyGit)
+keymap("n", "<leader>gg", ":LazyGit<CR>", { silent = true, desc = "Toggle LazyGit" })
+
 -- Tab/Buffer Navigation
 keymap({ "n", "i" }, "<C-Left>", "<ESC>:tabprevious<CR>")
 keymap({ "n", "i" }, "<C-Right>", "<ESC>:tabnext<CR>")

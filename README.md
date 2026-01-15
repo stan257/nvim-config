@@ -8,6 +8,7 @@ This is a personal Neovim setup focused on a quantitative research workflow. It 
 - **CSV handling:** Uses `csv.vim` for alignment and navigation of data files.
 - **Python support:** Uses `coc-pyright` for type checking and `@yaegassy/coc-ruff` for linting and formatting.
 - **Navigation:** Includes `telescope` for finding files and `nvim-tree` for file browsing. It integrates with `tmux` for seamless pane navigation.
+- **Git integration:** Uses `lazygit` for a powerful git terminal interface inside Neovim.
 - **Snippets:** Includes `vim-snippets` for common code blocks.
 
 ## Requirements
@@ -17,6 +18,7 @@ This is a personal Neovim setup focused on a quantitative research workflow. It 
 - Node.js (for coc.nvim)
 - Python 3
 - Ripgrep
+- Lazygit
 
 ## Installation
 
@@ -55,6 +57,7 @@ Place your cursor in a block of code separated by `# %%` and press `<Space>cc` t
 ### Key mappings
 - `<Space>ff`: Search for files.
 - `<Space>fg`: Search for text.
+- `<Space>gg`: Open LazyGit.
 - `Ctrl-`: Toggle the file tree.
 - `Ctrl-Enter`: Toggle the terminal.
 - `gd`: Go to definition.

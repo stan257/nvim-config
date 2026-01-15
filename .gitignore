@@ -1,0 +1,15 @@
+# Neovim plugins (installed by vim-plug)
+plugged/
+autoload/plug.vim
+
+# Persistent data
+coc-settings.json
+*.log
+.netrwhist
+*.swp
+.DS_Store
+
+# Python
+__pycache__/
+venv/
+.venv/

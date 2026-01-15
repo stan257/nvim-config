@@ -1,29 +1,51 @@
-# Neovim configuration
+# Neovim Configuration
 
-This is a personal Neovim setup focused on a quantitative research workflow. It is designed to work well with Python and CSV data.
+This is a personal Neovim setup focused on a quantitative research workflow. It is designed to work well with Python and CSV data, using a Lua-based architecture with `lazy.nvim` and `coc.nvim`.
 
 ## Features
 
 - **Interactive execution:** Uses `vim-slime` to send code from Neovim to an IPython session running in a tmux pane. It supports Jupyter-style cells delimited by `# %%`.
-- **CSV handling:** Uses `csv.vim` for basic alignment and navigation of data files within the editor.
+- **CSV handling:** Uses `csv.vim` for alignment and navigation of data files.
 - **Python support:** Uses `coc-pyright` for type checking and `@yaegassy/coc-ruff` for linting and formatting.
-- **Navigation:** Includes `telescope` for finding files and `nvim-tree` for file browsing. It also integrates with `tmux` for moving between panes.
-- **Snippets:** Includes `vim-snippets` for common code blocks in Python and other languages.
+- **Navigation:** Includes `telescope` for finding files and `nvim-tree` for file browsing. It integrates with `tmux` for seamless pane navigation.
+- **Snippets:** Includes `vim-snippets` for common code blocks.
 
 ## Requirements
 
-- Neovim
-- Tmux (for code execution)
+- Neovim (v0.9+)
+- Tmux
 - Node.js (for coc.nvim)
 - Python 3
 - Ripgrep
 
 ## Installation
 
-1. Install `vim-plug`.
-2. Clone this repository into `~/.config/nvim`.
-3. Open Neovim and run `:PlugInstall`.
-4. Install the required LSP extensions via `:CocInstall coc-pyright @yaegassy/coc-ruff`.
+1. Backup your existing configuration:
+   ```sh
+   mv ~/.config/nvim ~/.config/nvim.bak
+   ```
+
+2. Clone this repository:
+   ```sh
+   git clone https://github.com/stan257/nvim-config.git ~/.config/nvim
+   ```
+
+3. Open Neovim. `lazy.nvim` will automatically bootstrap and install all plugins.
+   ```sh
+   nvim
+   ```
+
+4. (Optional) If syntax highlighting looks wrong, update the parsers:
+   ```vim
+   :TSUpdate
+   ```
+
+## Structure
+
+- `init.lua`: Bootstrap and entry point.
+- `lua/plugins.lua`: Plugin list and configuration (managed by `lazy.nvim`).
+- `lua/mappings.lua`: Keybindings.
+- `lua/options.lua`: General editor settings.
 
 ## Usage
 
@@ -36,5 +58,6 @@ Place your cursor in a block of code separated by `# %%` and press `<Space>cc` t
 - `Ctrl-`: Toggle the file tree.
 - `Ctrl-Enter`: Toggle the terminal.
 - `gd`: Go to definition.
-- `K`: Show documentation.
+- `K`: Show documentation or error details.
+- `[g` / `]g`: Jump to previous/next error.
 - `Tab`: Format code or complete suggestions.

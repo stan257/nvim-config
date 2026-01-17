@@ -14,10 +14,11 @@ keymap("n", "<leader>fh", ":Telescope help_tags<cr>")
 -- Git (LazyGit)
 keymap("n", "<leader>gg", ":LazyGit<CR>", { silent = true, desc = "Toggle LazyGit" })
 
--- Tab/Buffer Navigation
-keymap({ "n", "i" }, "<C-Left>", "<ESC>:tabprevious<CR>")
-keymap({ "n", "i" }, "<C-Right>", "<ESC>:tabnext<CR>")
+-- Buffer Navigation (Shift+H / Shift+L)
+keymap("n", "H", ":bprevious<CR>", { silent = true })
+keymap("n", "L", ":bnext<CR>", { silent = true })
 keymap("n", "<C-c>", ":bd<CR>", { silent = true })
+
 -- Terminal Escape
 keymap("t", "<C-ESC>", [[<C-\><C-N>]])
 

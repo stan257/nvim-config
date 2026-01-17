@@ -60,6 +60,8 @@ Place your cursor in a block of code separated by `# %%` and press `<Space>cc` t
 - `<Space>gg`: Open LazyGit.
 - `Ctrl-`: Toggle the file tree.
 - `Ctrl-Enter`: Toggle the terminal.
+- `Shift-h`: Previous buffer.
+- `Shift-l`: Next buffer.
 - `gd`: Go to definition.
 - `K`: Show documentation or error details.
 - `[g` / `]g`: Jump to previous/next error.

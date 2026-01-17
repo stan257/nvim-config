@@ -73,3 +73,30 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = "*",
   command = "setlocal formatoptions-=cro",
 })
+
+-- =============================================================================
+-- AGENT COLLISION HANDLING
+-- =============================================================================
+
+-- 1. Enable autoread (standard setting)
+vim.o.autoread = true
+
+-- 2. Force a disk check whenever we focus the window or enter a buffer
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+    pattern = "*",
+    command = "checktime",
+})
+
+-- 3. Notification (Optional)
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+    pattern = "*",
+    callback = function()
+        vim.notify("File updated by Agent", vim.log.levels.INFO)
+    end,
+})
+
+-- Disable spell check for utility buffers (prevents underlines in NvimTree)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "NvimTree", "toggleterm", "telescope" },
+  command = "setlocal nospell",
+})

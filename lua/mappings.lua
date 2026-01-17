@@ -17,7 +17,7 @@ keymap("n", "<leader>gg", ":LazyGit<CR>", { silent = true, desc = "Toggle LazyGi
 -- Tab/Buffer Navigation
 keymap({ "n", "i" }, "<C-Left>", "<ESC>:tabprevious<CR>")
 keymap({ "n", "i" }, "<C-Right>", "<ESC>:tabnext<CR>")
-
+keymap("n", "<C-c>", ":bd<CR>", { silent = true })
 -- Terminal Escape
 keymap("t", "<C-ESC>", [[<C-\><C-N>]])
 

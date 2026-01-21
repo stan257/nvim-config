@@ -26,6 +26,14 @@ opt.splitright = true
 opt.completeopt = { "menuone", "noselect" }
 opt.pumheight = 12
 
+-- Python indent: use one shiftwidth inside parentheses, align closing paren
+vim.g.python_indent = {
+  open_paren = "shiftwidth()",
+  continue = "shiftwidth()",
+  nested_paren = "shiftwidth()",
+  closed_paren_align_last_line = false,
+}
+
 -- Netrw settings (using nvim-tree instead)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

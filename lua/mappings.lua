@@ -46,7 +46,12 @@ keymap("v", "<S-tab>", "<gv")
 -- CoC Configuration (Tab completion)
 keymap("i", "<TAB>", [[coc#pum#visible() ? coc#pum#next(1) : v:lua.check_backspace() ? "\<Tab>" : coc#refresh()]], { silent = true, expr = true })
 keymap("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], { expr = true })
-keymap("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<CR>"]], { silent = true, expr = true })
+keymap("i", "<CR>", function()
+  if vim.fn["coc#pum#visible"]() == 1 then
+     return vim.fn["coc#pum#confirm"]()
+  end
+  return require("nvim-autopairs").autopairs_cr()
+end, { expr = true, silent = true, replace_keycodes = false })
 
 -- Global check_backspace for CoC
 _G.check_backspace = function()

@@ -41,4 +41,16 @@ require("lazy").setup({
   -- Quant / Data Science
   { "chrisbra/csv.vim" },
   { "jpalardy/vim-slime" },
+  -- Auto Pairs
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup({
+        map_cr = false, -- Use our <CR> mapping in lua/mappings.lua
+        map_bs = true,
+        check_ts = true,
+      })
+    end,
+  },
 })

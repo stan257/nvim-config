@@ -18,7 +18,7 @@ Ensure these are installed on your system before starting Neovim.
 
 #### macOS
 ```sh
-brew install ripgrep lazygit node xclip
+brew install ripgrep lazygit node tmux
 # 'make' and 'gcc' are required for building Telescope extensions
 xcode-select --install
 ```
@@ -26,9 +26,11 @@ xcode-select --install
 #### Linux (Debian/Ubuntu)
 ```sh
 sudo apt update
-sudo apt install ripgrep lazygit nodejs npm xclip build-essential
+sudo apt install ripgrep lazygit nodejs npm tmux xclip build-essential
 ```
-*Note: `xclip` (or `wl-copy` on Wayland) is required for system clipboard integration.*
+*Note: `xclip` (or `wl-copy` on Wayland via `wl-clipboard`) is required for system clipboard integration.*
+
+*Note: `tmux` is required for the vim-slime workflow used to send code to an IPython pane.*
 
 ### Python Environment
 - Python 3

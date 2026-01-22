@@ -14,68 +14,11 @@ require("lazy").setup({
   -- Utilities
   { "tpope/vim-commentary" },
   { "honza/vim-snippets" },
-  { "tpope/vim-fugitive" },
-  { "kdheepak/lazygit.nvim" },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup({
-        current_line_blame = true, -- Show blame on current line (like GitLens)
-        current_line_blame_opts = {
-          delay = 500,
-        },
-      })
-    end
-  },
+  { import = "plugins.git" }, -- Imported from lua/plugins/git.lua
   { "christoomey/vim-tmux-navigator" },
 
   -- Syntax & Treesitter
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  { "nvim-treesitter/nvim-treesitter-context" },
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = "@class.inner",
-              ["ai"] = "@conditional.outer",
-              ["ii"] = "@conditional.inner",
-              ["al"] = "@loop.outer",
-              ["il"] = "@loop.inner",
-            },
-          },
-          move = {
-            enable = true,
-            set_jumps = true,
-            goto_next_start = {
-              ["]m"] = "@function.outer",
-              ["]]"] = "@class.outer",
-            },
-            goto_next_end = {
-              ["]M"] = "@function.outer",
-              ["]["] = "@class.outer",
-            },
-            goto_previous_start = {
-              ["[m"] = "@function.outer",
-              ["[["] = "@class.outer",
-            },
-            goto_previous_end = {
-              ["[M"] = "@function.outer",
-              ["[]"] = "@class.outer",
-            },
-          },
-        },
-      })
-    end,
-  },
+  { import = "plugins.treesitter" }, -- Imported from lua/plugins/treesitter.lua
 
   -- Telescope
   { "nvim-telescope/telescope.nvim" },

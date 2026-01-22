@@ -35,6 +35,15 @@ require("lazy").setup({
   -- ==========================================================================
   { "tpope/vim-commentary" },           -- Easy commenting (gc)
   { "christoomey/vim-tmux-navigator" }, -- Seamless nvim/tmux navigation
+  {
+    "rmagatti/auto-session",
+    config = function()
+      require("auto-session").setup({
+        log_level = "error",
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+      })
+    end,
+  },
 
   -- ==========================================================================
   -- TELESCOPE (FUZZY FINDER)

@@ -26,4 +26,4 @@ require("mappings")  -- Keybindings
 require("init")      -- Your existing lua/init.lua (Treesitter, Lualine, etc.)
 
 -- Load legacy Cyrillic mappings
-vim.cmd("source ~/.config/nvim/cyrilic.vim")
+vim.cmd("source " .. vim.fn.stdpath("config") .. "/cyrilic.vim")

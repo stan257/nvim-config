@@ -3,7 +3,6 @@ plugged/
 autoload/plug.vim
 
 # Persistent data
-coc-settings.json
 *.log
 .netrwhist
 *.swp

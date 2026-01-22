@@ -32,6 +32,9 @@ sudo apt install ripgrep lazygit nodejs npm tmux xclip build-essential
 
 *Note: `tmux` is required for the vim-slime workflow used to send code to an IPython pane.*
 
+### Fonts
+- A Nerd Font is required for file icons and lualine separators (e.g., FiraCode Nerd Font or JetBrainsMono Nerd Font).
+
 ### Python Environment
 - Python 3
 - `pynvim` package (required for some plugins):

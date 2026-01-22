@@ -50,7 +50,6 @@ require("lazy").setup({
   -- ==========================================================================
   { "nvim-telescope/telescope.nvim" },
   { "nvim-lua/plenary.nvim" },
-  { "BurntSushi/ripgrep" },
   { "nvim-telescope/telescope-file-browser.nvim" },
   { "nvim-lua/popup.nvim" },
   { "nvim-telescope/telescope-media-files.nvim" },

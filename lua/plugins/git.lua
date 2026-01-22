@@ -24,14 +24,14 @@ return {
             vim.keymap.set(mode, l, r, opts)
           end
 
-          -- Navigation (next/prev hunk) - using c (change) to avoid collision with CoC's g (diagnostics)
-          map("n", "]c", function()
+          -- Navigation (next/prev hunk) - using h (hunk) to avoid collision with class mappings
+          map("n", "]h", function()
             if vim.wo.diff then return "]c" end
             vim.schedule(function() gs.next_hunk() end)
             return "<Ignore>"
           end, { expr = true })
 
-          map("n", "[c", function()
+          map("n", "[h", function()
             if vim.wo.diff then return "[c" end
             vim.schedule(function() gs.prev_hunk() end)
             return "<Ignore>"

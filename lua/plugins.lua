@@ -28,6 +28,7 @@ require("lazy").setup({
   { import = "plugins.git" },
   { import = "plugins.treesitter" },
   { import = "plugins.editing" },
+  { import = "plugins.ui" },
 
   -- ==========================================================================
   -- UTILITIES & NAVIGATION

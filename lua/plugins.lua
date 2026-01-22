@@ -27,6 +27,7 @@ require("lazy").setup({
   -- Imports plugin specs from lua/plugins/git.lua and lua/plugins/treesitter.lua
   { import = "plugins.git" },
   { import = "plugins.treesitter" },
+  { import = "plugins.editing" },
 
   -- ==========================================================================
   -- UTILITIES & NAVIGATION

@@ -55,7 +55,7 @@ require("lazy").setup({
   end },
 
   -- ==========================================================================
-  -- QUANT / DATA SCIENCE / EDITING
+  -- DATA SCIENCE / EDITING
   -- ==========================================================================
   { "chrisbra/csv.vim" },  -- Better CSV viewing/alignment
   { "jpalardy/vim-slime" }, -- Send code to REPL/Tmux

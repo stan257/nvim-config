@@ -19,6 +19,10 @@ keymap("n", "H", ":bprevious<CR>", { silent = true })
 keymap("n", "L", ":bnext<CR>", { silent = true })
 keymap("n", "<C-c>", ":bd<CR>", { silent = true })
 
+-- Split Windows
+keymap("n", "<leader>|", ":vsplit<CR>", { silent = true, desc = "Vertical Split" })
+keymap("n", "<leader>-", ":split<CR>", { silent = true, desc = "Horizontal Split" })
+
 -- Terminal Escape
 keymap("t", "<C-ESC>", [[<C-\><C-N>]])
 

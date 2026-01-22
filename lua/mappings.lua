@@ -94,3 +94,9 @@ keymap("n", "<leader>cc", [[/^# %%<CR>jV/^# %%<CR>k:SlimeSend<CR>]])
 -- Copilot
 keymap("i", "<C-J>", [[copilot#Accept("\<CR>")]], { silent = true, expr = true, replace_keycodes = false })
 vim.g.copilot_no_tab_map = true
+
+-- Symbols Outline
+keymap("n", "<leader>s", ":CocList outline<CR>", { silent = true, desc = "Symbols Outline" })
+
+-- Rename Symbol
+keymap("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true, desc = "Rename Symbol" })

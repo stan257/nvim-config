@@ -78,8 +78,8 @@ Place your cursor in a block of code separated by `# %%` and press `<Space>cc` t
 - `<Space>ff`: Search for files.
 - `<Space>fg`: Search for text.
 - `<Space>gg`: Open LazyGit.
-- `Ctrl-`: Toggle the file tree.
-- `Ctrl-Enter`: Toggle the terminal.
+- `<Space>e`: Toggle the file tree (fallback for terminals that don't emit Ctrl-backtick).
+- `<Space>tt`: Toggle the terminal (fallback for terminals that don't emit Ctrl-Enter).
 - `Shift-h`: Previous buffer.
 - `Shift-l`: Next buffer.
 - `gd`: Go to definition.

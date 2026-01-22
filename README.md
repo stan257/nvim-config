@@ -13,12 +13,30 @@ This is a personal Neovim setup focused on a quantitative research workflow. It 
 
 ## Requirements
 
-- Neovim (v0.9+)
-- Tmux
-- Node.js (for coc.nvim)
+### System Tools
+Ensure these are installed on your system before starting Neovim.
+
+#### macOS
+```sh
+brew install ripgrep lazygit node xclip
+# 'make' and 'gcc' are required for building Telescope extensions
+xcode-select --install
+```
+
+#### Linux (Debian/Ubuntu)
+```sh
+sudo apt update
+sudo apt install ripgrep lazygit nodejs npm xclip build-essential
+```
+*Note: `xclip` (or `wl-copy` on Wayland) is required for system clipboard integration.*
+
+### Python Environment
 - Python 3
-- Ripgrep
-- Lazygit
+- `pynvim` package (required for some plugins):
+  ```sh
+  pip install pynvim
+  ```
+- A language server (e.g., Pyright) is managed automatically by CoC, but you need a valid python interpreter in your path.
 
 ## Installation
 

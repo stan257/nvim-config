@@ -58,10 +58,8 @@ require("lazy").setup({
   -- ==========================================================================
   -- COLORSCHEMES
   -- ==========================================================================
-  { "morhetz/gruvbox" },
-  { "ellisonleao/gruvbox.nvim" },
-  { "sainnhe/gruvbox-material", lazy = false, priority = 1000, config = function()
-      pcall(vim.cmd, "colorscheme gruvbox-material")
+  { "tomasiser/vim-code-dark", lazy = false, priority = 1000, config = function()
+      pcall(vim.cmd, "colorscheme codedark")
   end },
 
   -- ==========================================================================

@@ -17,6 +17,14 @@ vim.opt.rtp:prepend(lazypath)
 -- Set leader before loading plugins
 vim.g.mapleader = " "
 
+-- Guard against stale/invalid cwd (e.g., deleted working dir in tmux)
+do
+  local cwd = vim.loop.cwd()
+  if not cwd or cwd == "" or vim.fn.isdirectory(cwd) ~= 1 then
+    vim.cmd("cd " .. vim.fn.expand("~"))
+  end
+end
+
 -- ============================================================================
 -- LOAD CONFIGURATION MODULES
 -- ============================================================================

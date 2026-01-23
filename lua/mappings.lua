@@ -1,5 +1,8 @@
 local keymap = vim.keymap.set
 
+-- Clear search highlights with Esc
+keymap("n", "<Esc>", ":noh<CR><Esc>", { silent = true })
+
 -- Don't save to register when 'x' is pressed
 keymap({ "n", "v" }, "x", '"_x')
 keymap({ "n", "v" }, "X", '"_X')

@@ -18,6 +18,7 @@ opt.tabstop = 4
 opt.softtabstop = 4
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
+opt.scrolloff = 8
 opt.spell = true
 opt.spelllang = "en_us"
 opt.showmode = false

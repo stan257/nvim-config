@@ -100,8 +100,8 @@ endfunction
 ]])
 
 -- CoC Snippets
-vim.g.coc_snippet_next = "<c-k>"
-vim.g.coc_snippet_prev = "<c-l>"
+vim.g.coc_snippet_next = "<c-j>"
+vim.g.coc_snippet_prev = "<c-k>"
 
 -- Slime (REPL)
 vim.g.slime_target = "tmux"

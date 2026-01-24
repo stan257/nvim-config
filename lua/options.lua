@@ -22,6 +22,7 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.wrap = false
 opt.spell = true
+opt.inccommand = "split"
 opt.spelllang = "en_us"
 opt.showmode = false
 opt.backspace = "2"

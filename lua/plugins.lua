@@ -16,7 +16,13 @@ require("lazy").setup({
     branch = "release", 
     init = function()
       -- Global extensions for Python and Ruff (Linter)
-      vim.g.coc_global_extensions = { 'coc-pyright', '@yaegassy/coc-ruff' }
+      vim.g.coc_global_extensions = { 
+        'coc-pyright', 
+        '@yaegassy/coc-ruff', 
+        'coc-snippets',
+        'coc-json',
+        'coc-yaml'
+      }
     end 
   },
   { "honza/vim-snippets" }, -- Snippet collection

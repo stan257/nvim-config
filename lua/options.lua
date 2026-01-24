@@ -25,6 +25,7 @@ opt.backspace = "2"
 opt.splitright = true
 opt.completeopt = { "menuone", "noselect" }
 opt.pumheight = 12
+opt.undofile = true
 
 -- Python indent: use one shiftwidth inside parentheses, align closing paren
 vim.g.python_indent = {

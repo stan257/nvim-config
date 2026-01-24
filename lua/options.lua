@@ -73,7 +73,12 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Folding
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "python",
-  command = "set foldmethod=indent",
+  callback = function()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    -- Start with all folds open when opening a file
+    vim.opt_local.foldlevel = 99
+  end,
 })
 
 -- Disable auto-commenting on new lines

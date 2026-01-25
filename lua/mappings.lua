@@ -20,7 +20,21 @@ keymap("n", "<leader>gg", ":LazyGit<CR>", { silent = true, desc = "Toggle LazyGi
 -- Buffer Navigation (Shift+H / Shift+L)
 keymap("n", "H", ":bprevious<CR>", { silent = true })
 keymap("n", "L", ":bnext<CR>", { silent = true })
-keymap("n", "<C-c>", ":bd<CR>", { silent = true })
+
+-- Smart Buffer Close (<leader>c)
+keymap("n", "<leader>c", function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local modified = vim.api.nvim_buf_get_option(bufnr, "modified")
+  if modified then
+    vim.ui.input({ prompt = "You have unsaved changes. Quit anyway? (y/n) " }, function(input)
+      if input == "y" then
+        vim.cmd("bd! " .. bufnr)
+      end
+    end)
+  else
+    vim.cmd("bd " .. bufnr)
+  end
+end, { silent = true, desc = "Close Buffer" })
 
 -- Split Windows
 keymap("n", "<leader>|", ":vsplit<CR>", { silent = true, desc = "Vertical Split" })

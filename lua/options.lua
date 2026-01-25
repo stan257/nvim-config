@@ -131,7 +131,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Smart Wrap for Text files (Markdown, Text, Git Commit)
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "text", "gitcommit", "scratch" },
+  pattern = { "markdown", "text", "gitcommit", "scratch", "tex" },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.linebreak = true

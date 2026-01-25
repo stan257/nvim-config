@@ -128,3 +128,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     })
   end,
 })
+
+-- Smart Wrap for Text files (Markdown, Text, Git Commit)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "text", "gitcommit", "scratch" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+    vim.opt_local.cursorline = false -- Fixes latency in text files
+  end,
+})

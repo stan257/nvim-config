@@ -47,7 +47,7 @@ keymap("t", "<C-ESC>", [[<C-\><C-N>]])
 keymap({ "n", "i", "v" }, "<C-/>", function()
   return vim.fn.mode() == "i" and "<ESC>:Commentary<CR>" or ":Commentary<CR>"
 end, { expr = true })
-keymap({ "n", "i", "v" }, "<leader>/", function()
+keymap("n", "<leader>/", function()
   return vim.fn.mode() == "i" and "<ESC>:Commentary<CR>" or ":Commentary<CR>"
 end, { expr = true, desc = "Toggle comment" })
 
@@ -56,7 +56,7 @@ keymap({ "n", "i", "t" }, "<C-Enter>", function()
   local cmd = vim.fn.mode() == "t" and [[<C-\><C-N>:ToggleTerm<CR>]] or "<ESC>:ToggleTerm<CR>"
   return cmd
 end, { expr = true })
-keymap({ "n", "i", "t" }, "<leader>tt", function()
+keymap("n", "<leader>tt", function()
   local cmd = vim.fn.mode() == "t" and [[<C-\><C-N>:ToggleTerm<CR>]] or "<ESC>:ToggleTerm<CR>"
   return cmd
 end, { expr = true, desc = "Toggle terminal" })
@@ -66,7 +66,7 @@ keymap({ "n", "i", "t" }, "<C-`>", function()
   local cmd = vim.fn.mode() == "t" and [[<C-\><C-N>:NvimTreeToggle<CR>]] or "<ESC>:NvimTreeToggle<CR>"
   return cmd
 end, { expr = true })
-keymap({ "n", "t" }, "<leader>e", function()
+keymap("n", "<leader>e", function()
   local cmd = vim.fn.mode() == "t" and [[<C-\><C-N>:NvimTreeToggle<CR>]] or "<ESC>:NvimTreeToggle<CR>"
   return cmd
 end, { expr = true, desc = "Toggle file explorer" })

@@ -30,6 +30,7 @@ opt.splitright = true
 opt.completeopt = { "menuone", "noselect" }
 opt.pumheight = 12
 opt.undofile = true
+opt.updatetime = 300 -- Faster update time for CursorHold events
 
 -- Python indent: use one shiftwidth inside parentheses, align closing paren
 vim.g.python_indent = {
@@ -60,6 +61,15 @@ vim.g.gruvbox_material_diagnostic_line_highlight = 0
 vim.g.gruvbox_material_diagnostic_virtual_text = 'colored'
 
 -- Autocommands (Ported from init.vim)
+
+-- Highlight symbol under cursor on CursorHold
+vim.api.nvim_create_autocmd("CursorHold", {
+  pattern = "*",
+  callback = function()
+    vim.fn.CocActionAsync("highlight")
+  end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "cpp", "java", "noir" },
   command = "setlocal commentstring=//\\ %s",

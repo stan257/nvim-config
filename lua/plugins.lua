@@ -19,9 +19,10 @@ require("lazy").setup({
       vim.g.coc_global_extensions = { 
         'coc-pyright', 
         '@yaegassy/coc-ruff', 
-        'coc-snippets',
-        'coc-json',
-        'coc-yaml'
+        'coc-snippets', 
+        'coc-json', 
+        'coc-yaml',
+        'coc-clangd'
       }
     end 
   },

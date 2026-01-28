@@ -66,7 +66,7 @@ keymap({ "n", "i", "t" }, "<C-`>", function()
   local cmd = vim.fn.mode() == "t" and [[<C-\><C-N>:NvimTreeToggle<CR>]] or "<ESC>:NvimTreeToggle<CR>"
   return cmd
 end, { expr = true })
-keymap({ "n", "i", "t" }, "<leader>e", function()
+keymap({ "n", "t" }, "<leader>e", function()
   local cmd = vim.fn.mode() == "t" and [[<C-\><C-N>:NvimTreeToggle<CR>]] or "<ESC>:NvimTreeToggle<CR>"
   return cmd
 end, { expr = true, desc = "Toggle file explorer" })

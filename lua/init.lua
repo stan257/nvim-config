@@ -6,17 +6,7 @@
 require("toggleterm").setup()
 
 -- File Explorer (Nvim-Tree)
-local function nvim_tree_on_attach(bufnr)
-    local api = require("nvim-tree.api")
-    api.config.mappings.default_on_attach(bufnr)
-    -- Prevent changing the tree root to parent or node
-    vim.keymap.del("n", "-", { buffer = bufnr })
-    vim.keymap.del("n", "<C-]>", { buffer = bufnr })
-    vim.keymap.del("n", "<2-RightMouse>", { buffer = bufnr })
-end
-
 require("nvim-tree").setup({
-    on_attach = nvim_tree_on_attach,
     sort_by = "case_sensitive",
     sync_root_with_cwd = true,
     actions = {

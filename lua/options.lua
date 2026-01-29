@@ -102,6 +102,16 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   command = "setlocal formatoptions-=cro",
 })
 
+-- Ruff: apply safe fixes on save for Python (unused imports, etc.)
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.py",
+  callback = function()
+    if vim.fn.exists("*CocAction") == 1 then
+      pcall(vim.fn.CocAction, "runCommand", "ruff.executeAutofix")
+    end
+  end,
+})
+
 -- =============================================================================
 -- AGENT COLLISION HANDLING
 -- =============================================================================

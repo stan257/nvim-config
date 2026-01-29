@@ -8,7 +8,6 @@ require("toggleterm").setup()
 -- File Explorer (Nvim-Tree)
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
-    sync_root_with_cwd = true,
     view = {
         width = 34,
     },

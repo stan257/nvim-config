@@ -102,6 +102,40 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   command = "setlocal formatoptions-=cro",
 })
 
+-- Project root policy:
+-- - If a root marker is found, set cwd to that root.
+-- - Otherwise, keep cwd fixed to the startup directory.
+local initial_cwd = vim.fn.getcwd()
+vim.api.nvim_create_autocmd({ "BufEnter", "BufFilePost" }, {
+  callback = function()
+    local buf = vim.api.nvim_get_current_buf()
+    if vim.bo[buf].buftype ~= "" then
+      return
+    end
+    local name = vim.api.nvim_buf_get_name(buf)
+    if name == "" then
+      return
+    end
+    local dir = vim.fs.dirname(name)
+    if not dir then
+      return
+    end
+    local markers = {
+      ".git",
+      "pyproject.toml",
+      "package.json",
+      "Cargo.toml",
+      "go.mod",
+      "Makefile",
+    }
+    local found = vim.fs.find(markers, { path = dir, upward = true })[1]
+    local target = found and vim.fs.dirname(found) or initial_cwd
+    if target and target ~= "" and vim.fn.getcwd() ~= target then
+      vim.cmd("cd " .. vim.fn.fnameescape(target))
+    end
+  end,
+})
+
 -- Ruff: apply safe fixes on save for Python (unused imports, etc.)
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.py",

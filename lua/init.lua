@@ -9,6 +9,11 @@ require("toggleterm").setup()
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
     sync_root_with_cwd = true,
+    actions = {
+        change_dir = {
+            enable = false,
+        },
+    },
     view = {
         width = 34,
     },

@@ -14,8 +14,9 @@ keymap("n", "<leader>fg", ":Telescope live_grep<cr>")
 keymap("n", "<leader>fb", ":Telescope buffers<cr>")
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>")
 
--- Git (LazyGit)
-keymap("n", "<leader>gg", ":LazyGit<CR>", { silent = true, desc = "Toggle LazyGit" })
+-- Git (Diffview)
+keymap("n", "<leader>gv", ":DiffviewOpen<CR>", { silent = true, desc = "Open Diffview" })
+keymap("n", "<leader>gq", ":DiffviewClose<CR>", { silent = true, desc = "Close Diffview" })
 
 -- Buffer Navigation (Shift+H / Shift+L)
 keymap("n", "H", ":bprevious<CR>", { silent = true })

@@ -27,4 +27,14 @@ return {
       },
     },
   },
+
+  -- Highlight TODO, FIXME, NOTE, etc. in comments
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = "BufReadPost",
+    opts = {
+      -- defaults are usually fine
+    },
+  },
 }

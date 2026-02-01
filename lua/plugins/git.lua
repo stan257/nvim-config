@@ -2,8 +2,8 @@ return {
   -- The premier Vim plugin for Git (adds :G commands)
   { "tpope/vim-fugitive" },
 
-  -- A terminal UI for git (invoked via <leader>gg)
-  { "kdheepak/lazygit.nvim" },
+  -- VS Code-like diff view and history browsing
+  { "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
 
   -- Git integration for buffers (signs in gutter, line blame)
   {

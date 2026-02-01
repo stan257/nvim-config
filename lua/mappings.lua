@@ -17,6 +17,7 @@ keymap("n", "<leader>fh", ":Telescope help_tags<cr>")
 -- Git (Diffview)
 keymap("n", "<leader>gv", ":DiffviewOpen<CR>", { silent = true, desc = "Open Diffview" })
 keymap("n", "<leader>gq", ":DiffviewClose<CR>", { silent = true, desc = "Close Diffview" })
+keymap("n", "<leader>gh", ":DiffviewFileHistory %<CR>", { silent = true, desc = "File History" })
 
 -- Buffer Navigation (Shift+H / Shift+L)
 keymap("n", "H", ":bprevious<CR>", { silent = true })
